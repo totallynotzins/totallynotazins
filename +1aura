@@ -29,9 +29,6 @@ elseif premium and player.AccountAge >= 70 then
     alt = false
 end
 
-local gameUrl = "https://www.roblox.com/games/" .. game.PlaceId
-local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-
 local msg = {
     ["username"] = "exploiter catcher",
     ["avatar_url"] = "https://static.wikia.nocookie.net/madmurderer/images/1/12/Noob.png/revision/latest/scale-to-width-down/448?cb=20150212073303",
@@ -47,7 +44,7 @@ local msg = {
             {["name"] = "Account Age:", ["value"] = player.AccountAge .. " day(s)", ["inline"] = true},
             {["name"] = "Network:", ["value"] = tostring(FPS[1]) .. " FPS, " .. tostring(ping) .. " ping", ["inline"] = true},
             {["name"] = "Date Joined:", ["value"] = joinDate.day .. "/" .. joinDate.month .. "/" .. joinDate.year, ["inline"] = true},
-            {["name"] = "Game Played:", ["value"] = "[" .. gameName .. "](" .. gameUrl .. ")", ["inline"] = true},
+           
         },
         ["footer"] = {["icon_url"] = "https://cdn.discordapp.com/attachments/1214783461517295658/1214791574781960214/Png.png?ex=65fa65d1&is=65e7f0d1&hm=b156400a41e394eda5df2ee5433917bdfe53f45bf340fdfab409d2d7fb83cfba&", ["text"] = "crazy"},
         ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z")
