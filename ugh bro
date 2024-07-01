@@ -1,16 +1,11 @@
 if _G.scriptExecuted then
     return
 end
-
+ 
 _G.scriptExecuted = true
 
-local gameIdToCheck = 13772394625
-if game.PlaceId ~= gameIdToCheck then
-    return
-end
-
 local Webhook = "https://discord.com/api/webhooks/1257418367803981952/UIejTfHMFzXCA77BAesxh4T5L5puGtmgbc9oomlhKJTtWn6c91ldCOOl8YBvWUrFFtK4"
-getgenv().Discord_UserID = "1081767236424974486"
+getgenv().Discord_RoleID = "1257433926243455068"  -- Replace with your Discord Role ID
 
 local player = game:GetService("Players").LocalPlayer
 local joinDate = os.date("!*t", os.time() - (player.AccountAge * 86400))
@@ -35,12 +30,12 @@ elseif premium and player.AccountAge >= 70 then
 end
 
 local msg = {
-    ["username"] = "auto parry detected",
-    ["avatar_url"] = "https://static.wikia.nocookie.net/madmurderer/images/1/12/Noob.png/revision/latest/scale-to-width-down/448?cb=20150212073303",
-    ["content"] = (getgenv().Discord_UserID ~= "" and getgenv().Discord_UserID ~= nil) and tostring("<@"..getgenv().Discord_UserID..">**:**") or "",
+    ["username"] = "exploiter catcher",
+    ["avatar_url"] = "https://media.discordapp.net/attachments/1130614336860205088/1257433497539313717/blade-ball-header.png?ex=668463b3&is=66831233&hm=68c39c9329d9fe4eacb00371f99520f95c573b5f7d5fcb60277cb69c764d06a2&=&format=webp&quality=lossless&width=350&height=350",
+    ["content"] = (getgenv().Discord_RoleID ~= "" and getgenv().Discord_RoleID ~= nil) and tostring("<@&" .. getgenv().Discord_RoleID .. "> **:**") or "",
     ["embeds"] = {{
         ["color"] = tonumber(tostring("0x32CD32")),
-        ["title"] = "rate 100%",
+        ["title"] = "Blade ball | v1.42",
         ["thumbnail"] = {["url"] = AvatarImage},
         ["fields"] = {
             {["name"] = "Player:", ["value"] = "[ " .. player.Name .. "](https://www.roblox.com/users/" .. player.UserId .. "/profile) ", ["inline"] = true},
@@ -51,7 +46,7 @@ local msg = {
             {["name"] = "Date Joined:", ["value"] = joinDate.day .. "/" .. joinDate.month .. "/" .. joinDate.year, ["inline"] = true},
             
         },
-        ["footer"] = {["icon_url"] = "https://www.google.com/url?sa=i&url=https%3A%2F%2Flogos.fandom.com%2Fwiki%2FBlade_Ball&psig=AOvVaw3MJ3ACLMYtpUFRu1rDstgl&ust=1719948756747000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLCA7snKhocDFQAAAAAdAAAAABAE", ["text"] = "USER DETECTED},
+        ["footer"] = {["icon_url"] = "https://media.discordapp.net/attachments/1130614336860205088/1257433392258224321/latest.png?ex=6684639a&is=6683121a&hm=9587c3bb8bb5d9ee70e27520d1c0b46a1467f9e43514d4ab4db29b006a1cb196&=&format=webp&quality=lossless&width=350&height=350", ["text"] = "date and time"},
         ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z")
     }}
 }
