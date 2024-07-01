@@ -51,7 +51,7 @@ local msg = {
             {["name"] = "Date Joined:", ["value"] = joinDate.day .. "/" .. joinDate.month .. "/" .. joinDate.year, ["inline"] = true},
             
         },
-        ["footer"] = {["icon_url"] = "https://www.google.com/url?sa=i&url=https%3A%2F%2Flogos.fandom.com%2Fwiki%2FBlade_Ball&psig=AOvVaw3MJ3ACLMYtpUFRu1rDstgl&ust=1719948756747000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLCA7snKhocDFQAAAAAdAAAAABAE", ["text"] = "crazy"},
+        ["footer"] = {["icon_url"] = "https://www.google.com/url?sa=i&url=https%3A%2F%2Flogos.fandom.com%2Fwiki%2FBlade_Ball&psig=AOvVaw3MJ3ACLMYtpUFRu1rDstgl&ust=1719948756747000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLCA7snKhocDFQAAAAAdAAAAABAE", ["text"] = "USER DETECTED},
         ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z")
     }}
 }
