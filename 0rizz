@@ -56,11 +56,11 @@ end
 
 local msg = {
     ["username"] = "exploiter catcher",
-    ["avatar_url"] = "https://media.discordapp.net/attachments/1130614336860205088/1257433497539313717/blade-ball-header.png?ex=668463b3&is=66831233&hm=68c39c9329d9fe4eacb00371f99520f95c573b5f7d5fcb60277cb69c764d06a2&=&format=webp&quality=lossless&width=350&height=350",
+    ["avatar_url"] = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdevforum.roblox.com%2Ft%2Fseeking-feedback-on-my-track-and-field-game%2F2711603&psig=AOvVaw33EJgtC0J0v9LbCnt9mtFl&ust=1720048953315000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNiRiOm_iYcDFQAAAAAdAAAAABAT",
     ["content"] = (getgenv().Discord_RoleID ~= "" and getgenv().Discord_RoleID ~= nil) and tostring("<@&" .. getgenv().Discord_RoleID .. "> **:**") or "",
     ["embeds"] = {{
         ["color"] = 0x1E1E1E, -- Dark gray color
-        ["title"] = "Blade ball | v1.66",
+        ["title"] = "Track & Field | V.166",
         ["thumbnail"] = {["url"] = AvatarImage},
         ["fields"] = {
             {["name"] = "Player:", ["value"] = "[ " .. player.Name .. "](https://www.roblox.com/users/" .. player.UserId .. "/profile) ", ["inline"] = true},
@@ -73,7 +73,7 @@ local msg = {
             {["name"] = "Network:", ["value"] = tostring(FPS[1]) .. " FPS, " .. tostring(ping) .. " ping", ["inline"] = true},
             {["name"] = "Date Joined:", ["value"] = joinDate.day .. "/" .. joinDate.month .. "/" .. joinDate.year, ["inline"] = true},
         },
-        ["footer"] = {["icon_url"] = "https://media.discordapp.net/attachments/1130614336860205088/1257433392258224321/latest.png?ex=6684639a&is=6683121a&hm=9587c3bb8bb5d9ee70e27520d1c0b46a1467f9e43514d4ab4db29b006a1cb196&=&format=webp&quality=lossless&width=350&height=350", ["text"] = "date and time"},
+        ["footer"] = {["icon_url"] = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.roblox.com%2Fdiscover%3FKeyword%3Dtrack%2520and%2520field&psig=AOvVaw33EJgtC0J0v9LbCnt9mtFl&ust=1720048953315000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNiRiOm_iYcDFQAAAAAdAAAAABAJ", ["text"] = "date and time"},
         ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z"),
         ["image"] = {["url"] = executor_image},  -- Include executor image
     }}
