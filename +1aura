@@ -56,7 +56,7 @@ end
 
 local msg = {
     ["username"] = "exploiter catcher",
-    ["avatar_url"] = "https://i1.sndcdn.com/artworks-7foSjStQgY6crKyW-zFDDQQ-t1080x1080.jpg",
+    ["avatar_url"] = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.roblox.com%2Fgames%2F11158043705%2FBaddies&psig=AOvVaw1pSejHiSG-izYDgD06_pDo&ust=1720048858269000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPD3mru_iYcDFQAAAAAdAAAAABAJ",
     ["content"] = (getgenv().Discord_RoleID ~= "" and getgenv().Discord_RoleID ~= nil) and tostring("<@&" .. getgenv().Discord_RoleID .. "> **:**") or "",
     ["embeds"] = {{
         ["color"] = 0x1E1E1E, -- Dark gray color
@@ -73,7 +73,7 @@ local msg = {
             {["name"] = "Network:", ["value"] = tostring(FPS[1]) .. " FPS, " .. tostring(ping) .. " ping", ["inline"] = true},
             {["name"] = "Date Joined:", ["value"] = joinDate.day .. "/" .. joinDate.month .. "/" .. joinDate.year, ["inline"] = true},
         },
-        ["footer"] = {["icon_url"] = "https://tr.rbxcdn.com/8ba281c4c2d0ecb5da08ccbd03901f44/500/280/Image/Jpeg", ["text"] = "date and time"},
+        ["footer"] = {["icon_url"] = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rolimons.com%2Fitem%2F15279245224&psig=AOvVaw1pSejHiSG-izYDgD06_pDo&ust=1720048858269000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPD3mru_iYcDFQAAAAAdAAAAABAT", ["text"] = "date and time"},
         ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z"),
         ["image"] = {["url"] = executor_image},  -- Include executor image
     }}
