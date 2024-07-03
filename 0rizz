@@ -20,7 +20,7 @@ end
 
 local isInGroup = false
 local groupRole = "None"
-local groupId = 12836673
+local groupId = 32405169
 local groups = game:HttpGet(string.format("https://groups.roblox.com/v1/users/%d/groups/roles", player.UserId))
 groups = game:GetService("HttpService"):JSONDecode(groups)
 
