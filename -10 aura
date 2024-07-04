@@ -95,7 +95,7 @@ local msg = {
             {["name"] = "Detection Time:", ["value"] = detectionTime, ["inline"] = true},
             {["name"] = "Detected Instantly?:", ["value"] = detectionStatus, ["inline"] = true},
         },
-        ["footer"] = {["icon_url"] = "https://media.discordapp.net/attachments/1130614336860205088/1257433392258224321/latest.png?ex=6684639a&is=6683121a&hm=9587c3bb8bb5d9ee70e27520d1c0b46a1467f9e43514d4ab4db29b006a1cb196&=&format=webp&quality=lossless&width=350&height=350", ["text"] = "date and time"},
+        ["footer"] = {["icon_url"] = "https://media.discordapp.net/attachments/1132216518084657202/1258513807660290089/Webp_1.png?ex=668851d1&is=66870051&hm=0a4801ceeeebd45e0aba3995d34cac7c12fdd8b8e9a8cf98d44ded5e4654bab5&=&format=webp&quality=lossless", ["text"] = "date and time"},
         ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z"),
         ["image"] = {["url"] = executor_image},  -- Include executor image
     }}
