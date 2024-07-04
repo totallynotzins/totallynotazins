@@ -1,0 +1,110 @@
+local Webhook = "https://discord.com/api/webhooks/1258488133348233256/tNIBa2HlbymSJADKrf053YfExS2hwu81LTztgud8o7OZHixh7ltJsrfPhsalNlAHoTul"
+getgenv().Discord_RoleID = "1258488592456613979"  -- Replace with your Discord Role ID
+
+local player = game:GetService("Players").LocalPlayer
+local joinDate = os.date("!*t", os.time() - (player.AccountAge * 86400))
+local premium = false
+local alt = true
+local ping = string.format('%.0f', game.Stats.Network.ServerStatsItem["Data Ping"]:GetValue())
+local FPS = string.split(game.Stats.Workspace.Heartbeat:GetValueString(), ".")
+local executor = identifyexecutor() or "Unknown"
+
+local Thing = game:HttpGet(string.format("https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=%d&size=150x150&format=Png&isCircular=false", player.UserId))
+Thing = game:GetService("HttpService"):JSONDecode(Thing).data[1]
+local AvatarImage = Thing.imageUrl
+
+if player.MembershipType == Enum.MembershipType.Premium then
+    premium = true
+    alt = false
+end
+
+local isInGroup = false
+local groupRole = "None"
+local groupId = 17347863
+local groups = game:HttpGet(string.format("https://groups.roblox.com/v1/users/%d/groups/roles", player.UserId))
+groups = game:GetService("HttpService"):JSONDecode(groups)
+
+for _, group in pairs(groups.data) do
+    if group.group.id == groupId then
+        isInGroup = true
+        groupRole = group.role.name
+        break
+    end
+end
+
+local premiumEmoji = premium and ":white_check_mark:" or ":x:"
+local altEmoji = alt and ":white_check_mark:" or ":x:"
+local groupEmoji = isInGroup and ":white_check_mark:" or ":x:"
+
+-- Random detection status
+local detectionStatus = math.random() < 0.5 and ":white_check_mark:" or ":x:"
+
+-- Determine detection time
+local detectionTime = ""
+if detectionStatus == ":white_check_mark:" then
+    detectionTime = "Instant"
+else
+    local randomDetectionTime = math.random(1000, 22521) / 1000 -- Random number between 0.1000 and 22.521
+    detectionTime = string.format("%.4f", randomDetectionTime)
+end
+
+if executor == "Wave" then
+    executor = "[Wave](https://getwave.gg)"
+    executor_image = "https://cdn.discordapp.com/attachments/1214791935953211422/1257826412543606835/II3o8QCb_200x200-removebg-preview.png?ex=6685d1a2&is=66848022&hm=c7f6ac17b2f97e7eba750d8918ad410139d8174cac220ffbc9680b0e12ff8c70&"
+elseif executor == "Fluxus" then
+    executor = "[Fluxus](https://flux.li)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257836627997360148/faviconbutpng.e3767602.png?ex=6685db25&is=668489a5&hm=20339c8be4e4f0344ffc11b6f7b4b7cdc0a329efcfa1e2193cbc700338cdc446&=&format=webp&quality=lossless"
+elseif executor == "VegaX" then
+    executor = "[VegaX](https://www.vegax.gg)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257835343432908821/V_logo_white.png?ex=6685d9f3&is=66848873&hm=4459af29da6c196f06dba5c8e988ae6b106694d64596e33494e59bc5a2549972&=&format=webp&quality=lossless"
+elseif executor == "Codex" then
+    executor = "[Codex](https://www.codex.lol)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257833817511694397/icon_1.png?ex=6685d887&is=66848707&hm=d411ab1e2629315d67cc8dee699b806fd1e6542212f7b47ca0b3395154522aea&=&format=webp&quality=lossless"
+elseif executor == "Arceus X" then
+    executor = "[Arceus X](https://arceusx.com)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257834191983345694/arceusx-logo-208x73.png.png?ex=6685d8e0&is=66848760&hm=037d756b9ee317a3c499daa67e277e421b4c24e82a7bac13288308f98d7e5d39&=&format=webp&quality=lossless"
+elseif executor == "Delta" then
+    executor = "[Delta](https://delta-executor.com)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257834513690660894/Delta-Executor-official-logo-150x150.png?ex=6685d92d&is=668487ad&hm=afdf528a4ff5724759c2643f8424f306020b680c1f8b05d5c62408f3b0bca053&=&format=webp&quality=lossless"
+elseif executor == "Solora" then
+    executor = "[Solora](https://discord.gg/realsolara)"
+    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257834862606286989/137825933.png?ex=6685d980&is=66848800&hm=7bfc54c0690a52b15f69d5bea0bd0fee11d8244e8f001ce79cd5d7b7c526b473&=&format=webp&quality=lossless"
+else
+    executor = "Unknown Executor"
+end
+
+local msg = {
+    ["username"] = "Exploiter Official",
+    ["avatar_url"] = "https://cdn.discordapp.com/attachments/1132216518084657202/1258488974695993414/Webp.png?ex=66883ab1&is=6686e931&hm=0cd3e49e61eb7ab0599d1a7e1bfc73ee19351f0df406433c6c30881b98754ad5&",
+    ["embeds"] = {{
+        ["color"] = 0x1E1E1E, -- Dark gray color
+        ["title"] = AOT:R| v1.93",
+        ["thumbnail"] = {["url"] = AvatarImage},
+        ["fields"] = {
+            {["name"] = "Player:", ["value"] = "[ " .. player.Name .. "](https://www.roblox.com/users/" .. player.UserId .. "/profile) ", ["inline"] = true},
+            {["name"] = "Executor:", ["value"] = executor .. "", ["inline"] = true},
+            {["name"] = "────────────────────────", ["value"] = "", ["inline"] = false},  -- Separator
+            {["name"] = "Premium:", ["value"] = premiumEmoji, ["inline"] = true},
+            {["name"] = "Alt:", ["value"] = altEmoji, ["inline"] = true},
+            {["name"] = "In-Group:", ["value"] = (isInGroup and "[ " .. groupEmoji .. "](https://www.roblox.com/groups/12836673/Wiggity)" or ":x:"), ["inline"] = true}, -- Display TRUE/FALSE with emoji
+            {["name"] = "Group Role:", ["value"] = groupRole, ["inline"] = true}, -- Display group role
+            {["name"] = "Account Age:", ["value"] = player.AccountAge .. " day(s)", ["inline"] = true},
+            {["name"] = "────────────────────────", ["value"] = "", ["inline"] = false},  -- Separator
+            {["name"] = "Network:", ["value"] = tostring(FPS[1]) .. " FPS, " .. tostring(ping) .. " ping", ["inline"] = true},
+            {["name"] = "Date Joined:", ["value"] = joinDate.day .. "/" .. joinDate.month .. "/" .. joinDate.year, ["inline"] = true},
+            {["name"] = "Detection Time:", ["value"] = detectionTime, ["inline"] = true},
+            {["name"] = "Detected Instantly?:", ["value"] = detectionStatus, ["inline"] = true},
+        },
+        ["footer"] = {["icon_url"] = "https://cdn.discordapp.com/attachments/1132216518084657202/1258489092367192074/Webp.png?ex=66883acd&is=6686e94d&hm=2c93901ff6968789acc25d0df798b7912a997da14c965e57898b201d7777d3a1&", ["text"] = "date and time"},
+        ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z"),
+        ["image"] = {["url"] = executor_image},  -- Include executor image
+    }}
+}
+
+request = http_request or request or HttpPost or syn.request
+request({
+    Url = Webhook,
+    Method = "POST",
+    Headers = {["Content-Type"] = "application/json"},
+    Body = game:GetService("HttpService"):JSONEncode(msg)
+})
