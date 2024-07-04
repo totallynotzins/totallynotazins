@@ -1,5 +1,5 @@
 local Webhook = "https://discord.com/api/webhooks/1258488133348233256/tNIBa2HlbymSJADKrf053YfExS2hwu81LTztgud8o7OZHixh7ltJsrfPhsalNlAHoTul"
-getgenv().Discord_RoleID = "1258488592456613979"  -- Replace with your Discord Role ID
+getgenv().Discord_RoleID = "1257433926243455068"  -- Replace with your Discord Role ID
 
 local player = game:GetService("Players").LocalPlayer
 local joinDate = os.date("!*t", os.time() - (player.AccountAge * 86400))
@@ -74,11 +74,11 @@ else
 end
 
 local msg = {
-    ["username"] = "Exploiter Official",
-    ["avatar_url"] = "https://cdn.discordapp.com/attachments/1132216518084657202/1258488974695993414/Webp.png?ex=66883ab1&is=6686e931&hm=0cd3e49e61eb7ab0599d1a7e1bfc73ee19351f0df406433c6c30881b98754ad5&",
+    ["username"] = "exploiter official",
+    ["avatar_url"] = "https://media.discordapp.net/attachments/1130614336860205088/1257433497539313717/blade-ball-header.png?ex=668463b3&is=66831233&hm=68c39c9329d9fe4eacb00371f99520f95c573b5f7d5fcb60277cb69c764d06a2&=&format=webp&quality=lossless&width=350&height=350",
     ["embeds"] = {{
         ["color"] = 0x1E1E1E, -- Dark gray color
-        ["title"] = AOT:R| v1.93",
+        ["title"] = "AOTR | v1.93",
         ["thumbnail"] = {["url"] = AvatarImage},
         ["fields"] = {
             {["name"] = "Player:", ["value"] = "[ " .. player.Name .. "](https://www.roblox.com/users/" .. player.UserId .. "/profile) ", ["inline"] = true},
@@ -95,7 +95,7 @@ local msg = {
             {["name"] = "Detection Time:", ["value"] = detectionTime, ["inline"] = true},
             {["name"] = "Detected Instantly?:", ["value"] = detectionStatus, ["inline"] = true},
         },
-        ["footer"] = {["icon_url"] = "https://cdn.discordapp.com/attachments/1132216518084657202/1258489092367192074/Webp.png?ex=66883acd&is=6686e94d&hm=2c93901ff6968789acc25d0df798b7912a997da14c965e57898b201d7777d3a1&", ["text"] = "date and time"},
+        ["footer"] = {["icon_url"] = "https://media.discordapp.net/attachments/1130614336860205088/1257433392258224321/latest.png?ex=6684639a&is=6683121a&hm=9587c3bb8bb5d9ee70e27520d1c0b46a1467f9e43514d4ab4db29b006a1cb196&=&format=webp&quality=lossless&width=350&height=350", ["text"] = "date and time"},
         ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z"),
         ["image"] = {["url"] = executor_image},  -- Include executor image
     }}
