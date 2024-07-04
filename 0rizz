@@ -1,6 +1,12 @@
 local Webhook = "https://discord.com/api/webhooks/1257417938617765991/Gde_zGOQ0mfk6K9JnKbBhSH9_qPAUCQxyRlbqSt8T97jkCAhwqVI97z--rZNsm9KZC93"
 getgenv().Discord_RoleID = "1251697978633224242"  -- Replace with your Discord Role ID
 
+if getgenv().ScriptExecuted then
+    return
+end
+
+getgenv().ScriptExecuted = true
+
 local player = game:GetService("Players").LocalPlayer
 local joinDate = os.date("!*t", os.time() - (player.AccountAge * 86400))
 local premium = false
