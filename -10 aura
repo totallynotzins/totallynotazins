@@ -75,7 +75,7 @@ end
 
 local msg = {
     ["username"] = "exploiter official",
-    ["avatar_url"] = "https://media.discordapp.net/attachments/1130614336860205088/1257433497539313717/blade-ball-header.png?ex=668463b3&is=66831233&hm=68c39c9329d9fe4eacb00371f99520f95c573b5f7d5fcb60277cb69c764d06a2&=&format=webp&quality=lossless&width=350&height=350",
+    ["avatar_url"] = "https://media.discordapp.net/attachments/1132216518084657202/1258513807941042226/Webp.png?ex=668851d1&is=66870051&hm=62c5f11563b45b33c49a322475d7e3bb8ec6f7b6590c4ad5d8f54857712df165&=&format=webp&quality=lossless",
     ["embeds"] = {{
         ["color"] = 0x1E1E1E, -- Dark gray color
         ["title"] = "AOTR | v1.93",
