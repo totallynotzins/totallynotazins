@@ -56,25 +56,18 @@ end
 
 if executor == "Wave" then
     executor = "[Wave](https://getwave.gg)"
-    executor_image = "https://cdn.discordapp.com/attachments/1214791935953211422/1257826412543606835/II3o8QCb_200x200-removebg-preview.png?ex=6685d1a2&is=66848022&hm=c7f6ac17b2f97e7eba750d8918ad410139d8174cac220ffbc9680b0e12ff8c70&"
 elseif executor == "Fluxus" then
     executor = "[Fluxus](https://flux.li)"
-    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257836627997360148/faviconbutpng.e3767602.png?ex=6685db25&is=668489a5&hm=20339c8be4e4f0344ffc11b6f7b4b7cdc0a329efcfa1e2193cbc700338cdc446&=&format=webp&quality=lossless"
 elseif executor == "VegaX" then
     executor = "[VegaX](https://www.vegax.gg)"
-    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257835343432908821/V_logo_white.png?ex=6685d9f3&is=66848873&hm=4459af29da6c196f06dba5c8e988ae6b106694d64596e33494e59bc5a2549972&=&format=webp&quality=lossless"
 elseif executor == "Codex" then
     executor = "[Codex](https://www.codex.lol)"
-    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257833817511694397/icon_1.png?ex=6685d887&is=66848707&hm=d411ab1e2629315d67cc8dee699b806fd1e6542212f7b47ca0b3395154522aea&=&format=webp&quality=lossless"
 elseif executor == "Arceus X" then
     executor = "[Arceus X](https://arceusx.com)"
-    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257834191983345694/arceusx-logo-208x73.png.png?ex=6685d8e0&is=66848760&hm=037d756b9ee317a3c499daa67e277e421b4c24e82a7bac13288308f98d7e5d39&=&format=webp&quality=lossless"
 elseif executor == "Delta" then
     executor = "[Delta](https://delta-executor.com)"
-    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257834513690660894/Delta-Executor-official-logo-150x150.png?ex=6685d92d&is=668487ad&hm=afdf528a4ff5724759c2643f8424f306020b680c1f8b05d5c62408f3b0bca053&=&format=webp&quality=lossless"
 elseif executor == "Solora" then
     executor = "[Solora](https://discord.gg/realsolara)"
-    executor_image = "https://media.discordapp.net/attachments/1214791935953211422/1257834862606286989/137825933.png?ex=6685d980&is=66848800&hm=7bfc54c0690a52b15f69d5bea0bd0fee11d8244e8f001ce79cd5d7b7c526b473&=&format=webp&quality=lossless"
 else
     executor = "Unknown Executor"
 end
@@ -103,7 +96,6 @@ local msg = {
         },
         ["footer"] = {["icon_url"] = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rolimons.com%2Fitem%2F15279245224&psig=AOvVaw1pSejHiSG-izYDgD06_pDo&ust=1720048858269000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPD3mru_iYcDFQAAAAAdAAAAABAT", ["text"] = "date and time"},
         ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z"),
-        ["image"] = {["url"] = executor_image},  -- Include executor image
     }}
 }
 
