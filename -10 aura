@@ -1,4 +1,4 @@
-local Webhook = "https://discord.com/api/webhooks/1258488133348233256/tNIBa2HlbymSJADKrf053YfExS2hwu81LTztgud8o7OZHixh7ltJsrfPhsalNlAHoTul"
+local Webhook = "https://discord.com/api/webhooks/1267071653234475020/FW0y-4N7iWF96nsWy2nBJuhwuRDrkqU2XJIvT3z_Z7lbPNSOX27D5NeDAggV-Jqb3BV7"
 getgenv().Discord_RoleID = "1257433926243455068"  -- Replace with your Discord Role ID
 
 if getgenv().ScriptExecuted then
